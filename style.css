@@ -20,6 +20,9 @@ body {
 }
 .box {
   background: aqua;
+  height: 100px;
+  width: 100px;
+  margin: auto;
 }
 .b1 {
   grid-area: "a";
