@@ -2,7 +2,7 @@ body {
   color: purple;
   text-align: center;
 }
-.theme-selector {
+form {
   margin-top: 40px;
   margin-bottom: 40px;
 }
@@ -10,7 +10,7 @@ body {
   margin: 20px;
 }
 .cards-grid {
-  backround-color: grey;
+  background-color: grey;
   color: black;
   display: grid;
   grid-template-areas:
