@@ -1,3 +1,50 @@
 body {
-  color: green;
+  color: purple;
+  text-align: center;
+}
+.theme-selector {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.score {
+  margin: 20px;
+}
+.cards-grid {
+  backround-color: grey;
+  color: black;
+  display: grid;
+  grid-template-areas:
+    "a b c"
+    "d e f"
+    "g h i";
+}
+.box {
+  background: aqua;
+}
+.b1 {
+  grid-area: "a";
+}
+.b2 {
+  grid-area: "b";
+}
+.b3 {
+  grid-area: "c";
+}
+.b4 {
+  grid-area: "d";
+}
+.b5 {
+  grid-area: "e";
+}
+.b6 {
+  grid-area: "f";
+}
+.b7 {
+  grid-area: "g";
+}
+.b8 {
+  grid-area: "h";
+}
+.b9 {
+  grid-area: "i";
 }
