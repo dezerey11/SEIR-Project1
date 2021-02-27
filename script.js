@@ -11,7 +11,9 @@ function handleGetImages(event) {
   }
 
   $.ajax({
-    url: "https://api.imgur.com/3/gallery/search/top/all/0.json?q=" + userInput,
+    url:
+      "https://api.imgur.com/3/gallery/search/top/all/0.json?q=" +
+      encodeURIComponent(userInput),
     headers: {
       Authorization: "Client-ID d156c8a308b4525",
     },
@@ -25,21 +27,38 @@ function handleGetImages(event) {
     }
   );
 }
-
+render();
 function render(imgData) {
-  console.log(imgData.data[0].title);
+  // console.log(imgData.data[0].title);
   // $input.val("");
-  let randomImg = imgData.data[0].images[0].link;
-  $(".b1 img").attr("src", randomImg);
-  $(".b2 img").attr("src", randomImg);
-  $(".b3 img").attr("src", randomImg);
-  $(".b4 img").attr("src", randomImg);
-  $(".b5 img").attr("src", randomImg);
-  $(".b6 img").attr("src", randomImg);
-  $(".b7 img").attr("src", randomImg);
-  $(".b8 img").attr("src", randomImg);
-  $(".b9 img").attr("src", randomImg);
-  $(".b10 img").attr("src", randomImg);
-  $(".b11 img").attr("src", randomImg);
-  $(".b12 img").attr("src", randomImg);
+
+  // adding pictures to boxes
+  // let insertImg = imgData.data[0].images[0].link;
+  const imgUrls = [
+    "https://i.imgur.com/2bvab7y.jpg",
+    "https://i.imgur.com/uvFEcJN.jpg",
+    "https://i.imgur.com/2bvab7y.jpg",
+    "https://i.imgur.com/uvFEcJN.jpg",
+  ];
+  // $(".b1 img").attr("src", "https://i.imgur.com/2bvab7y.jpg");
+  // $(".b2 img").attr("src", "https://i.imgur.com/uvFEcJN.jpg");
+
+  const shuffledImgUrls = shuffle(imgUrls);
+
+  for (let i = 0; i < shuffledImgUrls.length; i++) {
+    $(`.b${i + 1} img`).attr("src", shuffledImgUrls[i]);
+  }
+}
+
+function shuffle(arr) {
+  const randomArr = arr.slice(); //makes a copy of the array
+  for (let i = 0; i < 100; i++) {
+    const random1 = Math.floor(Math.random() * arr.length);
+    const random2 = Math.floor(Math.random() * arr.length);
+    const saveArr1 = randomArr[random1];
+    randomArr[random1] = randomArr[random2];
+    randomArr[random2] = saveArr1;
+  }
+
+  return randomArr;
 }

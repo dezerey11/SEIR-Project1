@@ -17,7 +17,8 @@ form {
   grid-template-areas:
     "a b c"
     "d e f"
-    "g h i";
+    "g h i"
+    "j k l";
 }
 .box {
   background: aqua;
@@ -31,8 +32,6 @@ img {
 }
 .b1 {
   grid-area: "a";
-  object-fit: cover;
-  max-width: 100%;
 }
 .b2 {
   grid-area: "b";
@@ -57,4 +56,13 @@ img {
 }
 .b9 {
   grid-area: "i";
+}
+.b10 {
+  grid-area: "j";
+}
+.b11 {
+  grid-area: "k";
+}
+.b12 {
+  grid-area: "l";
 }
