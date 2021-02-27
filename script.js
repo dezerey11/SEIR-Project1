@@ -1,4 +1,4 @@
-const $input = $('input[type="text"]');
+let $input = $('input[type="text"]');
 
 $("form").on("submit", handleGetImages);
 
@@ -28,4 +28,18 @@ function handleGetImages(event) {
 
 function render(imgData) {
   console.log(imgData.data[0].title);
+  // $input.val("");
+  let randomImg = imgData.data[0].images[0].link;
+  $(".b1 img").attr("src", randomImg);
+  $(".b2 img").attr("src", randomImg);
+  $(".b3 img").attr("src", randomImg);
+  $(".b4 img").attr("src", randomImg);
+  $(".b5 img").attr("src", randomImg);
+  $(".b6 img").attr("src", randomImg);
+  $(".b7 img").attr("src", randomImg);
+  $(".b8 img").attr("src", randomImg);
+  $(".b9 img").attr("src", randomImg);
+  $(".b10 img").attr("src", randomImg);
+  $(".b11 img").attr("src", randomImg);
+  $(".b12 img").attr("src", randomImg);
 }
