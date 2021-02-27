@@ -27,7 +27,7 @@ function handleGetImages(event) {
     }
   );
 }
-render();
+render(); // to hold the picture until i get game to work, then remove it
 function render(imgData) {
   // console.log(imgData.data[0].title);
   // $input.val("");
@@ -61,4 +61,17 @@ function shuffle(arr) {
 
 function duplicateArray(arr) {
   return arr.concat(arr);
+}
+
+$(".box").on("click", handleShowImage);
+
+function handleShowImage() {
+  const image = $(this).find(".bi");
+  ///check if image is visible
+  if (image.is(":visible")) {
+    image.hide();
+  } else {
+    image.show();
+  }
+  console.log(this);
 }

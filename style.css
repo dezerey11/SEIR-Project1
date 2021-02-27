@@ -13,7 +13,7 @@ form {
   background-color: grey;
   color: black;
   display: grid;
-  /* grid-gap: 10px; */
+  grid-gap: 10px;
   grid-template-areas:
     "a b c"
     "d e f"
@@ -28,7 +28,16 @@ form {
 }
 img {
   object-fit: cover;
-  max-width: 100%;
+  width: 100px;
+  height: 100px;
+}
+.bz {
+  background: grey;
+  width: 100px;
+  height: 100px;
+}
+.bi {
+  display: none;
 }
 .b1 {
   grid-area: "a";
