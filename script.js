@@ -37,13 +37,9 @@ function render(imgData) {
   const imgUrls = [
     "https://i.imgur.com/2bvab7y.jpg",
     "https://i.imgur.com/uvFEcJN.jpg",
-    "https://i.imgur.com/2bvab7y.jpg",
-    "https://i.imgur.com/uvFEcJN.jpg",
   ];
-  // $(".b1 img").attr("src", "https://i.imgur.com/2bvab7y.jpg");
-  // $(".b2 img").attr("src", "https://i.imgur.com/uvFEcJN.jpg");
 
-  const shuffledImgUrls = shuffle(imgUrls);
+  const shuffledImgUrls = shuffle(duplicateArray(imgUrls));
 
   for (let i = 0; i < shuffledImgUrls.length; i++) {
     $(`.b${i + 1} img`).attr("src", shuffledImgUrls[i]);
@@ -61,4 +57,8 @@ function shuffle(arr) {
   }
 
   return randomArr;
+}
+
+function duplicateArray(arr) {
+  return arr.concat(arr);
 }
