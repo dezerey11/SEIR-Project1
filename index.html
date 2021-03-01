@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script defer src="script.js"></script>
@@ -15,7 +20,11 @@
       <p>
         Theme:
         <span>
-          <input type="text" placeholder="enter theme" />
+          <select id="theme">
+            <option value="Mage">Mage</option>
+            <option value="Assassin">Assassin</option>
+            <option value="Fighter">Fighter</option>
+          </select>
           <button type="submit">Start</button>
         </span>
       </p>
@@ -26,18 +35,14 @@
       <div class="box b2"><img class="bi" id="2" /></div>
       <div class="box b3"><img class="bi" id="3" /></div>
       <div class="box b4"><img class="bi" id="4" /></div>
-      <!-- <div class="box b5"><img class="bi" id="5" /></div>
+      <div class="box b5"><img class="bi" id="5" /></div>
       <div class="box b6"><img class="bi" id="6" /></div>
       <div class="box b7"><img class="bi" id="7" /></div>
       <div class="box b8"><img class="bi" id="8" /></div>
       <div class="box b9"><img class="bi" id="9" /></div>
       <div class="box b10"><img class="bi" id="10" /></div>
       <div class="box b11"><img class="bi" id="11" /></div>
-      <div class="box b12"><img class="bi" id="12" /></div> -->
-    </div>
-    <div class="score">
-      <div class="move-count">Moves:</div>
-      <div class="high score">High-Score:</div>
+      <div class="box b12"><img class="bi" id="12" /></div>
     </div>
   </body>
 </html>

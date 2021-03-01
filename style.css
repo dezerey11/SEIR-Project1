@@ -1,44 +1,63 @@
 body {
   color: purple;
   text-align: center;
+  font-size: 30px;
+  font-family: "Lobster", cursive;
+  background-color: #c2c2d6;
 }
 form {
   margin-top: 40px;
   margin-bottom: 40px;
 }
-.score {
-  margin: 20px;
+input {
+  font-size: 15px;
+}
+button {
+  font-size: 15px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+button:disabled {
+  background-color: gray;
+  cursor: unset;
 }
 .cards-grid {
-  background-color: grey;
+  background-color: #c2c2d6;
   color: black;
   display: grid;
-  grid-gap: 10px;
+  margin: 0 auto;
+  grid-gap: 30px;
   grid-template-areas:
-    "a b c"
-    "d e f"
-    "g h i"
-    "j k l";
+    "a b c d"
+    "e f g h"
+    "j k l m";
 }
 .box {
   background: aqua;
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
   margin: auto;
 }
 img {
   object-fit: cover;
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
 }
+
+/* the replacement box after images were matched */
 .bz {
   background: grey;
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
 }
+
+/* class for images in the box */
 .bi {
   display: none;
 }
+
+/* each box for the grid */
 .b1 {
   grid-area: "a";
 }

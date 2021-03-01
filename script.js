@@ -1,22 +1,14 @@
-let $input = $('input[type="text"]');
+const $theme = $("#theme");
 
 $("form").on("submit", handleGetImages);
 
 function handleGetImages(event) {
   event.preventDefault();
-  const userInput = $input.val();
-
-  if (!userInput) {
-    return;
-  }
+  $('button[type="submit"]').attr("disabled", true);
 
   $.ajax({
     url:
-      "https://api.imgur.com/3/gallery/search/top/all/0.json?q=" +
-      encodeURIComponent(userInput),
-    headers: {
-      Authorization: "Client-ID d156c8a308b4525",
-    },
+      "https://ddragon.leagueoflegends.com/cdn/11.4.1/data/en_US/champion.json",
   }).then(
     (data) => {
       console.log(data);
@@ -27,23 +19,31 @@ function handleGetImages(event) {
     }
   );
 }
-render(); // to hold the picture until i get game to work, then remove it
+
 function render(imgData) {
-  // console.log(imgData.data[0].title);
-  // $input.val("");
-
   // adding pictures to boxes
-  // let insertImg = imgData.data[0].images[0].link;
-  const imgUrls = [
-    "https://i.imgur.com/2bvab7y.jpg",
-    "https://i.imgur.com/uvFEcJN.jpg",
-  ];
-
+  const imgUrls = getChampImageUrls(imgData, 6);
   const shuffledImgUrls = shuffle(duplicateArray(imgUrls));
 
   for (let i = 0; i < shuffledImgUrls.length; i++) {
     $(`.b${i + 1} img`).attr("src", shuffledImgUrls[i]);
   }
+}
+
+// function that takes imageData as input and returns the image urls in an array
+function getChampImageUrls(imgData, count) {
+  const imgUrls = [];
+  for (const champ in imgData.data) {
+    if (imgData.data[champ].tags.includes($theme.val())) {
+      const imgFull = imgData.data[champ].image.full;
+      const imgUrl =
+        "http://ddragon.leagueoflegends.com/cdn/11.4.1/img/champion/" + imgFull;
+      imgUrls.push(imgUrl);
+    }
+  }
+
+  const shuffledImgUrls = shuffle(imgUrls);
+  return shuffledImgUrls.slice(0, count);
 }
 
 function shuffle(arr) {
@@ -64,9 +64,9 @@ function duplicateArray(arr) {
 }
 
 // next line will only work on boxes at this time,not the changes
-$(".box").on("click", handleShowImage);
+$(".box").on("click", handleImageClick);
 
-function handleShowImage() {
+function handleImageClick() {
   const image = $(this).find(".bi");
   ///check if image is visible
   if (image.is(":visible")) {
