@@ -28,6 +28,8 @@ function render(imgData) {
   for (let i = 0; i < shuffledImgUrls.length; i++) {
     $(`.b${i + 1} img`).attr("src", shuffledImgUrls[i]);
   }
+
+  $(".box").on("click", handleImageClick);
 }
 
 // function that takes imageData as input and returns the image urls in an array
@@ -62,9 +64,6 @@ function shuffle(arr) {
 function duplicateArray(arr) {
   return arr.concat(arr);
 }
-
-// next line will only work on boxes at this time,not the changes
-$(".box").on("click", handleImageClick);
 
 function handleImageClick() {
   const image = $(this).find(".bi");
