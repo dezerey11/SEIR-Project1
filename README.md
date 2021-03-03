@@ -27,7 +27,7 @@ Play the game [here](https://dezerey11.github.io/SEIR-Project1/).
 - Push the “Start” button
 - Click on a box
 - Next click should be on the second choice box to see if they match
-- Refresh the page to start over
+- Click on the "Start Over" button to play again
 
 ### Unsolved Problems:
 
