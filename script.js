@@ -122,3 +122,7 @@ function handleGameEnding() {
     $message.text("You did it!");
   }
 }
+
+$("#refresh").on("click", () => {
+  window.location.reload();
+});
