@@ -5,6 +5,7 @@ $("form").on("submit", handleGetImages);
 function handleGetImages(event) {
   event.preventDefault();
   $('button[type="submit"]').attr("disabled", "disabled");
+  $("select").attr("disabled", "disabled");
 
   $.ajax({
     url:
