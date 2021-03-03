@@ -35,6 +35,7 @@ button:disabled {
 }
 .box {
   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBxBDiC_EzpOnqlBa8PgNzC1qXMRBxGdi8hg&usqp=CAU");
+  background-size: 150px 150px;
   height: 150px;
   width: 150px;
   margin: auto;
