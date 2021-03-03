@@ -40,7 +40,8 @@ function getChampImageUrls(imgData, count) {
     if (imgData.data[champ].tags.includes($theme.val())) {
       const imgFull = imgData.data[champ].image.full;
       const imgUrl =
-        "http://ddragon.leagueoflegends.com/cdn/11.4.1/img/champion/" + imgFull;
+        "https://ddragon.leagueoflegends.com/cdn/11.4.1/img/champion/" +
+        imgFull;
       imgUrls.push(imgUrl);
     }
   }
