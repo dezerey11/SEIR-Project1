@@ -4,7 +4,7 @@ $("form").on("submit", handleGetImages);
 
 function handleGetImages(event) {
   event.preventDefault();
-  $('button[type="submit"]').attr("disabled", true);
+  $('button[type="submit"]').attr("disabled", "disabled");
 
   $.ajax({
     url:
@@ -21,7 +21,7 @@ function handleGetImages(event) {
 }
 
 function render(imgData) {
-  // adding pictures to boxes
+  // add pictures to boxes
   const imgUrls = getChampImageUrls(imgData, 6);
   const shuffledImgUrls = shuffle(duplicateArray(imgUrls));
 
@@ -49,7 +49,9 @@ function getChampImageUrls(imgData, count) {
 }
 
 function shuffle(arr) {
-  const randomArr = arr.slice(); //makes a copy of the array
+  //make a copy of the array
+  const randomArr = arr.slice();
+  //shuffle the array
   for (let i = 0; i < 100; i++) {
     const random1 = Math.floor(Math.random() * arr.length);
     const random2 = Math.floor(Math.random() * arr.length);
@@ -57,7 +59,6 @@ function shuffle(arr) {
     randomArr[random1] = randomArr[random2];
     randomArr[random2] = saveArr1;
   }
-
   return randomArr;
 }
 
@@ -65,6 +66,7 @@ function duplicateArray(arr) {
   return arr.concat(arr);
 }
 
+//function that toggles image on click
 function handleImageClick() {
   const image = $(this).find(".bi");
   ///check if image is visible
@@ -76,6 +78,7 @@ function handleImageClick() {
   handleCheckMatch(image);
 }
 
+//This variable is for an object that keeps track of the matches
 let firstPick = null;
 const $message = $(".message");
 
@@ -86,26 +89,33 @@ function handleCheckMatch(image) {
     firstPick = { src: imgSrc, id: imgId };
     $message.text("Choose Another Card");
   } else if (firstPick.src === imgSrc && firstPick.id !== imgId) {
+    //for first pick remove/replace the image if they match
     $("#" + firstPick.id)
       .parent()
-      .replaceWith(`<div class="box bz"></div>`);
-    image.parent().replaceWith(`<div class="box bz"></div>`);
+      .replaceWith(`<div class="box empty-box"></div>`);
+
+    //for second pick remove/replace the image if they match
+    image.parent().replaceWith(`<div class="box empty-box"></div>`);
+
     firstPick = null;
     $message.text("Match");
     handleGameEnding();
   } else {
-    //hide() doesn't work with a string. Selector needs # because your chosing ID.
+    //Hide first image
+    //hide() doesn't work with a string. Selector needs # because it's chosing ID.
     $("#" + firstPick.id).hide();
-    //image is the second pick in this condition
+
+    //Hide second image
     image.hide();
+
     firstPick = null;
     $message.text("No Match");
   }
 }
 
-// Check game ending ----game can only end after a match
+// Check game has ended ----game can only end after a match
 function handleGameEnding() {
-  if ($(".box").not(".bz").length === 0) {
+  if ($(".box").not(".empty-box").length === 0) {
     $message.text("You did it!");
   }
 }

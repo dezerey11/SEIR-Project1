@@ -22,7 +22,7 @@ button:disabled {
   background-color: gray;
   cursor: unset;
 }
-.cards-grid {
+.images-grid {
   background-color: #c2c2d6;
   color: black;
   display: grid;
@@ -34,7 +34,7 @@ button:disabled {
     "j k l m";
 }
 .box {
-  background: aqua;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBxBDiC_EzpOnqlBa8PgNzC1qXMRBxGdi8hg&usqp=CAU");
   height: 150px;
   width: 150px;
   margin: auto;
@@ -46,7 +46,7 @@ img {
 }
 
 /* the replacement box after images were matched */
-.bz {
+.empty-box {
   background: grey;
   width: 150px;
   height: 150px;
@@ -57,7 +57,7 @@ img {
   display: none;
 }
 
-/* each box for the grid */
+/* class for each box in the grid */
 .b1 {
   grid-area: "a";
 }
