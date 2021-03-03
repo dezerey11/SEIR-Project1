@@ -59,6 +59,7 @@ function shuffle(arr) {
     randomArr[random1] = randomArr[random2];
     randomArr[random2] = saveArr1;
   }
+
   return randomArr;
 }
 
@@ -66,7 +67,7 @@ function duplicateArray(arr) {
   return arr.concat(arr);
 }
 
-//function that toggles image on click
+//toggle image on click and checks match
 function handleImageClick() {
   const image = $(this).find(".bi");
   ///check if image is visible
@@ -115,6 +116,7 @@ function handleCheckMatch(image) {
 
 // Check game has ended ----game can only end after a match
 function handleGameEnding() {
+  // Check if all boxes are empty
   if ($(".box").not(".empty-box").length === 0) {
     $message.text("You did it!");
   }
