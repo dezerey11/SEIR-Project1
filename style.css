@@ -123,7 +123,7 @@ img {
   #refresh {
     grid-area: "refresh";
     margin-top: 40px;
-    width: 100px;
+    width: 200px;
     height: 20px;
   }
 }
