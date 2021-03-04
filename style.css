@@ -94,3 +94,36 @@ img {
 .b12 {
   grid-area: "l";
 }
+
+@media screen and (max-width: 600px) {
+  body {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.25fr 0.25fr 0.25fr 1fr 0.25fr;
+    grid-template-areas:
+      "title"
+      "theme"
+      "message"
+      "images"
+      "refresh";
+  }
+  h1 {
+    grid-area: "title";
+  }
+  form {
+    grid-area: "theme";
+  }
+  h3 {
+    grid-area: "message";
+  }
+  .images-grid {
+    grid-area: "images";
+  }
+  #refresh {
+    grid-area: "refresh";
+    margin-top: 40px;
+    width: 100px;
+    height: 20px;
+  }
+}
