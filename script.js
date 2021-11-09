@@ -1,15 +1,16 @@
-const $theme = $("#theme");
-
 $("form").on("submit", handleGetImages);
 
 function handleGetImages(event) {
   event.preventDefault();
-  $('button[type="submit"]').attr("disabled", "disabled");
-  $("select").attr("disabled", "disabled");
+  // $('button[type="submit"]').attr("disabled", "disabled");
+  $('button[type="submit"]').remove();
+  // $("select").attr("disabled", "disabled");
+  const themeSelection = $("select").val();
+  $("p").append(`${themeSelection}`);
+  $("select").remove();
 
   $.ajax({
-    url:
-      "https://ddragon.leagueoflegends.com/cdn/11.4.1/data/en_US/champion.json",
+    url: "https://ddragon.leagueoflegends.com/cdn/11.4.1/data/en_US/champion.json",
   }).then(
     (data) => {
       console.log(data);
@@ -32,6 +33,8 @@ function render(imgData) {
 
   $(".box").on("click", handleImageClick);
 }
+
+const $theme = $("#theme");
 
 // function that takes imageData as input and returns the image urls in an array
 function getChampImageUrls(imgData, count) {
@@ -76,6 +79,7 @@ function handleImageClick() {
   if (image.is(":visible")) {
     image.hide();
   } else {
+    image.css({ animation: "fadeIn", "animation-duration": "1s" });
     image.show();
   }
   handleCheckMatch(image);
@@ -102,6 +106,7 @@ function handleCheckMatch(image) {
 
     firstPick = null;
     $message.text("Match");
+
     handleGameEnding();
   } else {
     //Hide first image
@@ -121,9 +126,20 @@ function handleGameEnding() {
   // Check if all boxes are empty
   if ($(".box").not(".empty-box").length === 0) {
     $message.text("You did it!");
+    $message.css({
+      animation: "tada",
+      "animation-duration": "2s",
+      "font-size": "75px",
+    });
+
+    const grid = $(".images-grid");
+    grid.remove();
+
+    $("p").remove();
   }
 }
 
+//Refresh the page to start over
 $("#refresh").on("click", () => {
   window.location.reload();
 });

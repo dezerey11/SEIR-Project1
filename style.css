@@ -1,9 +1,19 @@
 body {
-  color: purple;
+  /* color: purple; */
+  color: #c2c2d6;
+  /* color: white; */
   text-align: center;
   font-size: 30px;
   font-family: "Lobster", cursive;
-  background-color: #c2c2d6;
+  /* background-color: #c2c2d6; */
+  background-color: black;
+}
+::selection {
+  color: none;
+  background: none;
+}
+h3 {
+  color: rgb(80, 48, 80);
 }
 form {
   margin-top: 40px;
@@ -15,15 +25,26 @@ input {
 button {
   font-size: 15px;
   background-color: black;
+  border-radius: 5px;
   color: white;
   cursor: pointer;
+  padding: 5px;
+  font-family: "Lobster", cursive;
+}
+button:hover {
+  background-color: rgb(80, 48, 80);
 }
 button:disabled {
   background-color: gray;
   cursor: unset;
 }
+#refresh {
+  padding: 10px;
+  margin-top: 15px;
+}
 .images-grid {
-  background-color: #c2c2d6;
+  /* background-color: #c2c2d6; */
+  background-color: black;
   color: black;
   display: grid;
   margin: 0 auto;
@@ -34,10 +55,15 @@ button:disabled {
     "j k l m";
 }
 .box {
-  background: aqua;
+  /* background: aqua; */
+  background: url("https://images.pexels.com/photos/2763927/pexels-photo-2763927.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
+  background-size: cover;
+  border-radius: 5px;
   height: 150px;
   width: 150px;
   margin: auto;
+  animation: pulse;
+  animation-duration: 2s;
 }
 img {
   object-fit: cover;
@@ -47,7 +73,7 @@ img {
 
 /* the replacement box after images were matched */
 .empty-box {
-  background: grey;
+  background: black;
   width: 150px;
   height: 150px;
 }
@@ -99,8 +125,8 @@ img {
   .box,
   .empty-box,
   img {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
   }
 
   .images-grid {
